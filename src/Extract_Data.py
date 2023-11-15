@@ -2,10 +2,10 @@
 import requests
 import pandas as pd
 from io import StringIO
-import os
-
+from pyspark.sql import SparkSession
 # URL of the CSV file
-csv_url = 'https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/baseball.csv'
+csv_url = 'https://raw.githubusercontent.com/pandas-dev/'
+csv_url += 'pandas/main/doc/data/baseball.csv'
 
 # Fetch CSV data using requests
 response = requests.get(csv_url)
@@ -13,9 +13,6 @@ response.raise_for_status()  # Ensure the request was successful
 
 # Convert the CSV data to a Pandas DataFrame
 pd_df = pd.read_csv(StringIO(response.text))
-
-# Initialize a SparkSession
-from pyspark.sql import SparkSession
 
 spark = SparkSession.builder \
     .appName("Write Pandas DataFrame to Delta Lake") \
@@ -32,6 +29,3 @@ df.write.format("delta").mode("overwrite").save(delta_table_path)
 
 # Show the first few rows of the Delta table
 df.show()
-
-
-
