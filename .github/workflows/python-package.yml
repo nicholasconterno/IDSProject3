@@ -25,21 +25,19 @@ jobs:
       run: |
         pip install flake8
         flake8 src
-    - name: Test with pytest
+    - name: Run tests
       run: |
         pip install pytest
         pytest
-    - name: Install Databricks CLI
-      run: |
-        pip install databricks-cli
-        databricks jobs configure --version=2.1
       env:
-        DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-        DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-    - name: Run Databricks Job
-      run: |
-        databricks runs submit --json-file databricks-job-definition.json
+        HOST: ${{ secrets.HOST }}
+        PAT: ${{ secrets.PAT }}
+        JOB_ID: ${{ secrets.JOB_ID }}
+    - name: Start Databricks Workflow
+      run: make run
       env:
-        DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-        DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        HOST: ${{ secrets.HOST }}
+        PAT: ${{ secrets.PAT }}
+        JOB_ID: ${{ secrets.JOB_ID }}
+
 
