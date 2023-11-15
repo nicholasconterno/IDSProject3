@@ -29,6 +29,12 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Install Databricks CLI
+      run: |
+        pip install databricks-cli
+      env:
+        DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+        DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
     - name: Run Databricks Job
       run: |
         databricks jobs run-now --json-file databricks-job-definition.json
