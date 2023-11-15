@@ -31,7 +31,7 @@ jobs:
         pytest
     - name: Run Databricks Job
       run: |
-        databricks jobs run-now --json-file path/to/your/databricks-job-definition.json
+        databricks jobs run-now --json-file databricks-job-definition.json
       env:
         DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
