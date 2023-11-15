@@ -6,7 +6,7 @@ Data visualization using pandas.
 
 Our `Makefile` contains several rules to simplify the development process:
 
-- **install**: Installs the necessary dependencies from the `requirements.txt` file.
+- **install**:  Installs the necessary dependencies from the `requirements.txt` file.
 - **lint**: Runs `flake8` to lint the code inside the `src` directory.
 - **test**: Executes unit tests using `pytest`.
 
