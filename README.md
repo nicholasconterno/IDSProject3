@@ -5,7 +5,7 @@
 This README outlines a Databricks ETL (Extract, Transform, Load) pipeline project, showcasing the integration of Delta Lake for enhanced data management and storage. The pipeline focuses on extracting baseball data, transforming it via Spark SQL, and loading it into Delta Lake, enhancing data integrity and providing actionable insights through detailed analysis and visualizations.
 ## Makefile Usage
 
-Our `Makefile` contains several rules to simplify the development process: 
+Our `Makefile` contains several rules to simplify the development process:  
 
 - **install**:  Installs the necessary dependencies from the `requirements.txt` file.
 - **lint**: Runs `flake8` to lint the code inside the `src` directory.
