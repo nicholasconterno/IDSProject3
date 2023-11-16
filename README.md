@@ -1,6 +1,7 @@
 [![Python package](https://github.com/nicholasconterno/IDSProject3/actions/workflows/python-package.yml/badge.svg)](https://github.com/nicholasconterno/IDSProject3/actions/workflows/python-package.yml)
 # Databricks ETL Pipeline Project README
-
+## Video Demonstration
+[Video Demonstration](https://youtu.be/2ARD9ngezhE)
 ## Overview
 This README outlines a Databricks ETL (Extract, Transform, Load) pipeline project, showcasing the integration of Delta Lake for enhanced data management and storage. The pipeline focuses on extracting baseball data, transforming it via Spark SQL, and loading it into Delta Lake, enhancing data integrity and providing actionable insights through detailed analysis and visualizations.
 ## Makefile Usage
