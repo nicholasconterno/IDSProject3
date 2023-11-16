@@ -1,6 +1,7 @@
 # Databricks notebook source
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
+import matplotlib.pyplot as plt
 # Initialize a SparkSession
 spark = SparkSession.builder \
     .appName("Analyze Player Statistics") \
@@ -66,10 +67,8 @@ print("Statistics most correlated with 'h':",
       max_with_h, "with correlation:", correlation_with_h[max_with_h])
 print("Statistics most correlated with 'hr':",
       max_with_hr, "with correlation:", correlation_hr[max_with_hr])
-import matplotlib.pyplot as plt
-
 # Convert the Spark DataFrame to a Pandas DataFrame for plotting
-# This step is necessary because matplotlib works with Pandas DataFrames or similar structures
+# This step is necessary because matplotlib works with Pandas DataFrames
 pandas_df = combined_df.toPandas()
 
 # Histogram for 'r'

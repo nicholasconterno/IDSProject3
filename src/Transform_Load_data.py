@@ -12,7 +12,7 @@ try:
     # Read the original Delta table into a Spark DataFrame
     original_df = spark.read.format("delta").load(original_table_path)
     if original_df.rdd.isEmpty():
-            raise ValueError("The DataFrame is empty. Check your data source.")
+        raise ValueError("The DataFrame is empty. Check your data source.")
 
     # Cast the 'id' column to the desired data type (e.g., IntegerType)
     original_df = original_df.withColumn("id", col("id").cast("integer"))
@@ -20,8 +20,8 @@ try:
     original_df = original_df.withColumn("stint", col("stint").cast("integer"))
 
     # Select the relevant columns for player information
-    player_info_df = original_df.select("id", "player",
-                                        "year", "stint", "team", "lg").distinct()
+    player_info_df = original_df.select("id", "player", "year",
+                                        "stint", "team", "lg").distinct()
 
     # Define the path for the new Delta table for player information
     player_info_table_path = "/dbfs/mnt/delta/updated_player_info"
@@ -38,7 +38,7 @@ try:
     # Cast the 'id' column to the desired data type (e.g., Integ
     game_stats_df = original_df.select(
         "id", "year", "team",  "r", "h", "X2b", "X3b", "hr", "rbi",
-            "sb", "cs", "bb", "so", "ibb", "hbp", "sh", "sf", "gidp"
+        "sb", "cs", "bb", "so", "ibb", "hbp", "sh", "sf", "gidp"
     ).distinct()
 
     # Define the path for the Delta table for game statistics
