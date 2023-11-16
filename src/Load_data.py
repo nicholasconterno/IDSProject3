@@ -66,3 +66,35 @@ print("Statistics most correlated with 'h':",
       max_with_h, "with correlation:", correlation_with_h[max_with_h])
 print("Statistics most correlated with 'hr':",
       max_with_hr, "with correlation:", correlation_hr[max_with_hr])
+import matplotlib.pyplot as plt
+
+# Convert the Spark DataFrame to a Pandas DataFrame for plotting
+# This step is necessary because matplotlib works with Pandas DataFrames or similar structures
+pandas_df = combined_df.toPandas()
+
+# Histogram for 'r'
+plt.figure(figsize=(10, 6))
+plt.hist(pandas_df['r'], bins=30, color='blue', edgecolor='black')
+plt.title("Histogram of 'r' (Runs)")
+plt.xlabel("'r'")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
+
+# Histogram for 'h'
+plt.figure(figsize=(10, 6))
+plt.hist(pandas_df['h'], bins=30, color='green', edgecolor='black')
+plt.title("Histogram of 'h' (Hits)")
+plt.xlabel("'h'")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
+
+# Histogram for 'hr'
+plt.figure(figsize=(10, 6))
+plt.hist(pandas_df['hr'], bins=30, color='red', edgecolor='black')
+plt.title("Histogram of 'hr' (Home Runs)")
+plt.xlabel("'hr'")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
