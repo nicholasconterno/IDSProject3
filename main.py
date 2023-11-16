@@ -31,5 +31,4 @@ if __name__ == "__main__":
     db_access_token = os.getenv("PAT")
     db_job_id = os.getenv("JOB_ID")
     db_server_host_name = 'adb-4253147117925923.3.azuredatabricks.net'
-    print(db_server_host_name)
     run(db_access_token, db_job_id, db_server_host_name)

@@ -89,9 +89,60 @@ make run
 ## Spark SQL in the Pipeline
 - **Effective Use of Spark SQL:** The pipeline leverages Spark SQL to perform complex data transformations, demonstrating its ability to handle large-scale data operations within the Spark ecosystem. The transformations ensure that the data is clean and analysis-ready.
 
+```python
+# Using Spark SQL to transform the data
+    transformed_df = spark.sql("""
+        SELECT
+            CAST(id AS INTEGER) AS id,
+            player,
+            CAST(year AS INTEGER) AS year,
+            CAST(stint AS INTEGER) AS stint,
+            team,
+            lg
+        FROM original_data
+    """)
+
+```
+
 ### Visualization and Conclusion
-- **Data Visualization:** The project includes matplotlib visualizations to convey the analysis results effectively. For instance, histograms are plotted to show the distribution of runs, hits, and home runs, providing clear insights into player performances.
-- **Actionable Recommendations:** The pipeline culminates in providing actionable recommendations based on the analysis. These recommendations are derived from player performance metrics and game statistics, aiding management in making informed decisions.
+- **Data Visualization:** The project includes matplotlib visualizations to convey the analysis results effectively. For instance, histograms are plotted to show the distribution of runs, hits, and home runs, providing clear insights into player performances. The results are shown below: 
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+Player(s) with the most 'r':\
++---------+---+\
+|   player|  r|\
++---------+---+\
+|sheffga01|107|\
+|gonzalu01| 93|\
+|ramirma02| 84|\
+|thomeji01| 79|\
+| kentje01| 78|\
++---------+---+
+
+Player(s) with the most 'h':\
++---------+---+\
+|   player|  h|\
++---------+---+\
+|gonzalu01|159|\
+| kentje01|149|\
+|thomafr04|147|\
+|griffke02|146|\
+|ramirma02|143|\
++---------+---+
+
+Player(s) with the most 'hr':\
++---------+---+\
+|   player| hr|\
++---------+---+\
+|thomeji01| 35|\
+|griffke02| 30|\
+|bondsba01| 28|\
+|thomafr04| 26|\
+|sheffga01| 25|\
++---------+---+\
+
+- **Actionable Recommendations:** The pipeline culminates in providing actionable recommendations based on the analysis. These recommendations are derived from player performance metrics and game statistics, aiding management in making informed decisions. My recommendations are to Make sure to keep players who excel in any of the three stats of home runs, hits, or runs because they are correlated, and players with high values for any of these statistics are extremely rare. 
 
 ## Automated Trigger
 - **Automation of Pipeline Trigger:** The project incorporates an automated trigger through GitHub Actions, demonstrating an automated and efficient workflow. This trigger initiates the pipeline on events like push or pull requests on the main branch:
